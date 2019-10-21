@@ -48,6 +48,10 @@ html, body {
 .title {
   margin: 0;
 
+  float: left;
+
+  width: 170px;
+
   padding-left: 5px;
   padding-top: 2.5px;
 
@@ -56,6 +60,20 @@ html, body {
   font-size: 24px;
 }
 
+.app-version {
+  margin: 0;
+
+  width: 160px;
+
+  float: right;
+
+  padding-right: 5px;
+  padding-top: 2.5px;
+
+  font-weight: 400;
+
+  font-size: 24px;
+}
 
 #main-form {
   padding: 15px;

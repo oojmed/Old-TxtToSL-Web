@@ -1,4 +1,3 @@
-var appVersion = "2019-10-21.1";
 var progressKey = undefined;
 var online = false;
 
@@ -40,10 +39,6 @@ function versionCheck() {
 
       if (split.length !== 2) {
         output += '<br/><hr>';
-
-        if (sectionCount === 1) {
-          output += 'App: <b>' + appVersion + '</b><br/> <br/><hr>';
-        }
 
         sectionCount++;
       } else {
@@ -107,7 +102,7 @@ function getProgressKey() {
 }
 
 function load() {
-  const aboutDialog = new mdc.dialog.MDCDialog(document.getElementById('login-dialog'));
+  const aboutDialog = new mdc.dialog.MDCDialog(document.getElementById('about-dialog'));
 
   $('#about-button').click(function () {
     aboutDialog.open();
@@ -117,7 +112,7 @@ function load() {
 
   versionCheck();
 
-  setInterval(versionCheck, 2500);
+  setInterval(versionCheck, 1000);
 
   $('#main-form').submit(function(event) {
     return formSubmit();
