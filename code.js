@@ -66,6 +66,7 @@ function versionCheck() {
 function updateUI() {
   if (online) {
     $('#offlineStatus').fadeOut(500, function() {
+      $('#onlineStatus').css('display', 'flex');
       $('#onlineStatus').fadeIn(500, function() {
         $('#translateButton').fadeIn(500);
       });

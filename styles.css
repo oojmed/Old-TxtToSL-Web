@@ -223,20 +223,20 @@ hr {
 
   font-size: 22px;
 }
+.status-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 33px;
+}
 
 .status-icon {
-  position: absolute;
-  bottom: -5px;
-
   font-size: 36px;
 
   cursor: default;
 }
 
 .status-text {
-  position: absolute;
-
-  bottom: -5px;
   left: 40px;
 }
 
