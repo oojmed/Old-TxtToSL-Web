@@ -223,11 +223,14 @@ hr {
 
   font-size: 22px;
 }
-.status-wrapper{
+
+.status-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
+
   height: 33px;
+  bottom: -5px;
 }
 
 .status-icon {
@@ -237,7 +240,7 @@ hr {
 }
 
 .status-text {
-  left: 40px;
+  margin-left: 5px;
 }
 
 #onlineStatus, #offlineStatus {
