@@ -1,4 +1,4 @@
-var appVersion = "2019-10-04.1";
+var appVersion = "2019-10-21.1";
 var progressKey = undefined;
 var online = false;
 
