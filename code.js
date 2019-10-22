@@ -68,14 +68,6 @@ function updateUI() {
     });
   } else {
     $('#translateButton').fadeOut(500, function() {
-      /*var full = $(document.width) <= 400;
-
-      $('.status-wrapper').animate({
-        left: (($(document).width() / 100) * 2.5) + 10
-      }, 500, function() {
-        // Animation complete.
-      });*/
-
       $('#onlineStatus').fadeOut(500, function() {
         $('#offlineStatus').fadeIn(500);
       });
@@ -254,10 +246,6 @@ function translate() {
     $(".loading").fadeIn(500);
     $(".loadingTime").fadeIn(500);
 
-    //finishedLoadingTexts();
-
-    //setTimeout(function() { changeLoadingText(); }, 5000);
-
     timeElapsed = 0;
     timeLoadingText();
   });
@@ -271,7 +259,7 @@ function translate() {
 	setupEventSource();
 }
 
-/* Loading Screen Background JS */
+// Loading Screen Background JS
 $(window).on('load', function() {
   function init() {
 
