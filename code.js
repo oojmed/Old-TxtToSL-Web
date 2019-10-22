@@ -66,26 +66,15 @@ function updateUI() {
         $('#translateButton').fadeIn(500);
       });
     });
-
-    var percent = $(document).width() / 100;
-    var wantedPercent = percent * 2.5;
-
-    var buttonWidth = $(document).width() <= 400 ? 110 : 152;
-
-    var padding = 30;
-
-    $('.status-wrapper').animate({
-      left: wantedPercent + buttonWidth + padding
-    }, 500, function() {
-      // Animation complete.
-    });
   } else {
     $('#translateButton').fadeOut(500, function() {
+      /*var full = $(document.width) <= 400;
+
       $('.status-wrapper').animate({
         left: (($(document).width() / 100) * 2.5) + 10
       }, 500, function() {
         // Animation complete.
-      });
+      });*/
 
       $('#onlineStatus').fadeOut(500, function() {
         $('#offlineStatus').fadeIn(500);
@@ -454,7 +443,7 @@ window.addEventListener( 'resize', function() {
 });
 
 async function registerSW() {
-  if ('serviceWorker' in navigator) {
+  if ('serviceWorker' in navigator && location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "") {
     try {
       await navigator.serviceWorker.register('./sw.js');
     } catch(e) {
