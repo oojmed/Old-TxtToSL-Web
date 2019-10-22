@@ -1,4 +1,4 @@
-# TTSLO (TxtToSL Online) - Web (App)
+# TxtToSL Web
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/l)
 
 The web app for TxtToSL Online. Uses the TxtToSL Online Server (ours)'s API, which translates text into sign language.
