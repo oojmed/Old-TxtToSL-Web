@@ -1,6 +1,7 @@
 {
-    "short_name": "TTSLO",
-    "name": "TTSLO Web",
+    "short_name": "TTSLO-Web",
+    "name": "TxtToSL Online - Web",
+
     "icons": [
         {
           "src": "./icons/logo_192.png",
@@ -13,9 +14,14 @@
           "sizes": "512x512"
         }
     ],
+
     "start_url": "/",
-    "background_color": "#fff",
-    "display": "standalone",
+
+    "background_color": "#1f1f1f",
     "theme_color": "#1f1f1f",
-    "description": "The web app for TxtToSL Online"
+
+    "display": "standalone",
+    "orientation": "portrait",
+
+    "description": "Translate text into sign language with TxtToSL Online - Web."
 }

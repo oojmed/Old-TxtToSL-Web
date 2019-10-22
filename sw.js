@@ -4,7 +4,7 @@ const staticAssets = [
     './index.html',
     './styles.css',
     './code.js',
-    './manifest.webmanifest'
+    './manifest.json'
 ];
 
 self.addEventListener('install', async e => {
