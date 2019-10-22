@@ -1,6 +1,6 @@
 {
     "short_name": "TTSL Web",
-    "name": "TxtToSL Web - Translate text to sign languages",
+    "name": "TxtToSL Web",
 
     "icons": [
         {
@@ -23,5 +23,5 @@
     "display": "standalone",
     "orientation": "portrait",
 
-    "description": "Translate text into sign language with TxtToSL Web."
+    "description": "Translate text into sign languages with TxtToSL Web."
 }
