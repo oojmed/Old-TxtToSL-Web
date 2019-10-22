@@ -135,6 +135,20 @@ function load() {
   registerSW();
 }
 
+async function registerSW() {
+  if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "") {
+    return false; // Disallow registering service worker on localhost
+  }
+
+  if ('serviceWorker' in navigator) {
+    try {
+      await navigator.serviceWorker.register('./sw.js');
+    } catch(e) {
+      console.log('SW registration failed')
+    }
+  }
+}
+
 function setSliderColor(value, selector) {
   if (value < 100) {
     var colorValue = ((value - 50) * 4);
@@ -429,13 +443,3 @@ window.addEventListener( 'resize', function() {
   init();
 } )
 });
-
-async function registerSW() {
-  if ('serviceWorker' in navigator && location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "") {
-    try {
-      await navigator.serviceWorker.register('./sw.js');
-    } catch(e) {
-      console.log('SW registration failed')
-    }
-  }
-}
