@@ -74,14 +74,14 @@ function updateUI() {
 
     var padding = 30;
 
-    $('.status').animate({
+    $('.status-wrapper').animate({
       left: wantedPercent + buttonWidth + padding
     }, 500, function() {
       // Animation complete.
     });
   } else {
     $('#translateButton').fadeOut(500, function() {
-      $('.status').animate({
+      $('.status-wrapper').animate({
         left: (($(document).width() / 100) * 2.5) + 10
       }, 500, function() {
         // Animation complete.
