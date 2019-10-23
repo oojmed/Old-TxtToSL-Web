@@ -1,5 +1,5 @@
 {
-    "short_name": "TTSL Web",
+    "short_name": "TxtToSL",
     "name": "TxtToSL Web",
 
     "icons": [
@@ -23,5 +23,5 @@
     "display": "standalone",
     "orientation": "portrait",
 
-    "description": "Translate text into sign languages with TxtToSL Web."
+    "description": "Translate text into sign languages with TxtToSL."
 }
