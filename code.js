@@ -53,7 +53,7 @@ function getVersion() {
 }
 
 function heartbeatCheck() {
-  $.get('https://vps.oojmed.com/TTSL_O/api/v1/heartbeat', function (data) {
+  if (window.navigator.onLine) { // if ($.get('https://vps.oojmed.com/TTSL_O/api/v1/heartbeat', function (data) {
     online = true;
 
     if (progressKey === undefined) {
@@ -65,11 +65,11 @@ function heartbeatCheck() {
     }
 
     updateUI();
-  }).fail(function() {
+  } else { // }).fail(function() {
     online = false;
 
     updateUI();
-  });
+  } // });
 }
 
 function updateUI() {
@@ -113,7 +113,7 @@ function load() {
 
   heartbeatCheck();
 
-  setInterval(heartbeatCheck, 5000);
+  setInterval(heartbeatCheck, 1000); // setInterval(heartbeatCheck, 5000);
   setInterval(getVersion, 3600000);
 
   $('#main-form').submit(function(event) {
