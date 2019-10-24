@@ -1,10 +1,15 @@
-const cacheName = 'TTSLO-V1';
+const cacheName = 'TxtToSL-Web';
 const staticAssets = [
     './',
     './index.html',
+    './?homescreen=1',
+    './index.html?homescreen=1',
     './styles.css',
     './code.js',
-    './manifest.json'
+    './manifest.json',
+    './waveimages/wave-bot.png',
+    './waveimages/wave-mid.png',
+    './waveimages/wave-top.png'
 ];
 
 self.addEventListener('install', async e => {
@@ -39,7 +44,13 @@ async function networkAndCache(req) {
     const cache = await caches.open(cacheName);
     try {
         const fresh = await fetch(req);
+
+        if (new URL(req.url).href === 'https://vps.oojmed.com/TTSL_O/v1/version' || new URL(req.url).href === 'https://vps.oojmed.com/TTSL_O/v1/heartbeat') {
+            return fresh;
+        }
+
         await cache.put(req, fresh.clone());
+
         return fresh;
     } catch(e) {
         const cached = await cache.match(req);
