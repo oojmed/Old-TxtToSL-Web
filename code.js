@@ -48,7 +48,7 @@ function getVersion() {
 
     $('#status').html(output);
 
-    $('#statusHeader').text(`Server Status (as of ${formatDate(new Date())})`);
+    $('#statusHeader').text(`Server Status (as of ${formatDate(new Date()).substring(5).replace('-', '/')})`);
   });
 }
 
