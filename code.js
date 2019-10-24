@@ -99,8 +99,6 @@ function getProgressKey() {
 function load() {
   const aboutDialog = new mdc.dialog.MDCDialog(document.getElementById('about-dialog'));
 
-  console.log(aboutDialog);
-
   $('#about-button').click(function () {
     aboutDialog.open();
   });
