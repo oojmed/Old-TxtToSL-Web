@@ -128,8 +128,11 @@ html, body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.5) !important;
 }
 
-.close {
-  color: white !important;
+#about-close {
+  float: right;
+
+  top: 10px;
+  left: 10px;
 }
 
 a {

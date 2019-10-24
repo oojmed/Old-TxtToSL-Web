@@ -1,4 +1,6 @@
 var progressKey = undefined;
+var version = undefined;
+
 var online = false;
 
 function formatDate(date) {
@@ -22,14 +24,8 @@ function formSubmit() {
   return false;
 }
 
-function versionCheck() {
+function getVersion() {
   $.get('https://vps.oojmed.com/TTSL_O/api/v1/version', function (data) {
-    online = true;
-
-    if (progressKey === undefined) {
-      getProgressKey();
-    }
-
     var fulls = data.split('\n');
     var output = "";
 
@@ -48,7 +44,25 @@ function versionCheck() {
 
     output = output.replace(/[0-9]{13}/g, function(m) { return formatDate(new Date(parseInt(m))); });
 
+    version = output;
+
     $('#status').html(output);
+
+    $('#statusHeader').text(`Server Status (as of ${formatDate(new Date())})`);
+  });
+}
+
+function heartbeatCheck() {
+  $.get('https://vps.oojmed.com/TTSL_O/api/v1/heartbeat', function (data) {
+    online = true;
+
+    if (progressKey === undefined) {
+      getProgressKey();
+    }
+
+    if (version === undefined) {
+      getVersion();
+    }
 
     updateUI();
   }).fail(function() {
@@ -85,15 +99,22 @@ function getProgressKey() {
 function load() {
   const aboutDialog = new mdc.dialog.MDCDialog(document.getElementById('about-dialog'));
 
+  console.log(aboutDialog);
+
   $('#about-button').click(function () {
     aboutDialog.open();
   });
 
+  $('#about-close').click(function() {
+    aboutDialog.close();
+  });
+
   window.mdc.autoInit();
 
-  versionCheck();
+  heartbeatCheck();
 
-  setInterval(versionCheck, 1000);
+  setInterval(heartbeatCheck, 5000);
+  setInterval(getVersion, 3600000);
 
   $('#main-form').submit(function(event) {
     return formSubmit();
