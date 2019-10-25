@@ -9,7 +9,10 @@ const staticAssets = [
     './manifest.json',
     './waveimages/wave-bot.png',
     './waveimages/wave-mid.png',
-    './waveimages/wave-top.png'
+    './waveimages/wave-top.png',
+    './favicon.ico',
+    './icons/logo_192.png',
+    './icons/logo_512.png'
 ];
 
 self.addEventListener('install', async e => {
