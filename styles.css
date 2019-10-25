@@ -135,6 +135,7 @@ html, body {
   left: 10px;
 }
 
+
 a {
   color: #007bff;
   text-decoration: none;
@@ -354,6 +355,12 @@ hr {
     float: left;
 
     margin-right: 0px;
+  }
+}
+
+@media only screen and (max-height: 600px) {
+  .extraSeparator {
+    display: none;
   }
 }
 
