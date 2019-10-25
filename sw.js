@@ -1,7 +1,7 @@
 const baseCacheName = 'TxtToSL-Web';
-const versionName = 'v2019-10-25.2';
+const versionName = 'v2019-10-25.3';
 const cacheName = baseCacheName + '-' + versionName;
-const runtimeCacheName = baseCacheName + '-runtime';
+const runtimeCacheName = cacheName + '-runtime';
 
 const staticAssets = [
     './',
