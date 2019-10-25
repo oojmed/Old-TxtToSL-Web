@@ -1,6 +1,5 @@
 var progressKey = undefined;
-var version = undefined;
-
+var status = undefined;
 var online = false;
 
 function formatDate(date) {
@@ -24,7 +23,7 @@ function formSubmit() {
   return false;
 }
 
-function getVersion() {
+function getStatus() {
   $.get('https://vps.oojmed.com/TTSL_O/api/v1/version', function (data) {
     var fulls = data.split('\n');
     var output = "";
@@ -44,7 +43,7 @@ function getVersion() {
 
     output = output.replace(/[0-9]{13}/g, function(m) { return formatDate(new Date(parseInt(m))); });
 
-    version = output;
+    status = output;
 
     $('#status').html(output);
 
@@ -60,8 +59,8 @@ function heartbeatCheck() {
       getProgressKey();
     }
 
-    if (version === undefined) {
-      getVersion();
+    if (status === undefined) {
+      getStatus();
     }
 
     updateUI();
@@ -112,7 +111,7 @@ function load() {
   heartbeatCheck();
 
   setInterval(heartbeatCheck, 1000); // setInterval(heartbeatCheck, 5000);
-  setInterval(getVersion, 3600000);
+  setInterval(getStatus, 3600000);
 
   $('#main-form').submit(function(event) {
     return formSubmit();
@@ -227,7 +226,10 @@ function setupEventSource() {
 
     console.log(event);
 
-    $('#loadingText').text(msg);
+    if (msg.indexOf('Uploaded to:') === -1) {
+      $('#loadingText').text(msg);
+    }
+
     //document.getElementById('details-text').scrollTop = document.getElementById('details-text').scrollHeight;
 
     if (msg === 'Checking integrity of data directories...') {
