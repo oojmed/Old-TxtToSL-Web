@@ -2,6 +2,8 @@ var progressKey = undefined;
 var status = undefined;
 var online = false;
 
+var updateSnackbar = undefined;
+
 function formatDate(date) {
   var year = date.getFullYear();
   var month = date.getMonth() + 1;
@@ -106,6 +108,8 @@ function load() {
     aboutDialog.close();
   });
 
+  updateSnackbar = new mdc.snackbar.MDCSnackbar(document.getElementById('update-snackbar'));
+  
   window.mdc.autoInit();
 
   heartbeatCheck();
@@ -160,7 +164,22 @@ async function registerSW() {
 
   if ('serviceWorker' in navigator) {
     try {
-      await navigator.serviceWorker.register('./sw.js');
+      navigator.serviceWorker.register('./sw.js').then(reg => {
+        reg.addEventListener('updatefound', () => {
+          var newWorker = reg.installing;
+
+          newWorker.addEventListener('statechange', () => {
+            switch (newWorker.state) {
+              case 'installed':
+                  if (navigator.serviceWorker.controller) {
+                    updateSnackbar.open();
+                  }
+
+                break;
+            }
+          });
+        });
+      });
     } catch(e) {
       console.log('SW registration failed')
     }
