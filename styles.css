@@ -135,6 +135,19 @@ html, body {
   left: 10px;
 }
 
+#about-button {
+  position: absolute;
+
+  right: calc(2.5% + 10px);
+  bottom: calc(2.5% + 10px);
+
+  font-size: 42px;
+
+  height: 42px;
+  width: 42px;
+
+  padding: 0;
+}
 
 a {
   color: #007bff;
@@ -235,11 +248,19 @@ hr {
   z-index: 5;
 }
 
+.bottom-section {
+  position: absolute;
+
+  width: 95%;
+  bottom: 2.5%;
+  left: 2.5%;
+}
+
 .status {
   position: absolute;
-  bottom: 6%;
 
-  left: calc(2.5% + 10px);
+  bottom: calc(2.5% + 25px);
+  left: calc(2.5% + 180px);
 
   font-size: 22px;
 }
@@ -271,12 +292,12 @@ hr {
   display: none;
 
   color: #4CAF50;
-
-  left: 170px;
 }
 
 #offlineStatus {
   color: #F44336;
+
+  left: -170px;
 }
 
 #translateButton {
@@ -370,10 +391,6 @@ hr {
     width: auto;
   }
 
-  #onlineStatus {
-    left: 130px;
-  }
-
   .main {
     height: 100%;
     width: 100%;
@@ -394,9 +411,13 @@ hr {
   }
 
   .status {
-    left: calc(2.5% + 10px);
+    left: calc(2.5% + 140px);
 
     bottom: 5%;
+  }
+
+  #offlineStatus {
+    left: -130px;
   }
 }
 
