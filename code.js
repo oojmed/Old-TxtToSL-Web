@@ -3,6 +3,7 @@ var status = undefined;
 var online = false;
 
 var updateSnackbar = undefined;
+var newWorker = undefined;
 
 function formatDate(date) {
   var year = date.getFullYear();
@@ -109,7 +110,11 @@ function load() {
   });
 
   updateSnackbar = new mdc.snackbar.MDCSnackbar(document.getElementById('update-snackbar'));
-  
+
+  $('#update-button').click(function() {
+    window.location.href = window.location.href;
+  });
+
   window.mdc.autoInit();
 
   heartbeatCheck();
@@ -166,7 +171,7 @@ async function registerSW() {
     try {
       navigator.serviceWorker.register('./sw.js').then(reg => {
         reg.addEventListener('updatefound', () => {
-          var newWorker = reg.installing;
+          newWorker = reg.installing;
 
           newWorker.addEventListener('statechange', () => {
             switch (newWorker.state) {
