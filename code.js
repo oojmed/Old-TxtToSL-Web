@@ -252,6 +252,10 @@ function setupEventSource() {
 
     if (msg.indexOf('Uploaded to:') === -1) {
       $('#loadingText').text(msg);
+    } else {
+      $('#loadingText').text('Redirecting...');
+
+      setPercentDone(100);
     }
 
     //document.getElementById('details-text').scrollTop = document.getElementById('details-text').scrollHeight;
@@ -309,10 +313,8 @@ function translate() {
     timeLoadingText();
   });
 
-  $.get('https://vps.oojmed.com/TTSL_O/api/v1/translate', $('#main-form').serialize(), function(data) {
-    console.log(data);
-
-    location.href = data;
+  $.get('https://vps.oojmed.com/TTSL_O/api/v1/translate', $('#main-form').serialize(), function(url) {
+    location.href = url;
   });
 
 	setupEventSource();
