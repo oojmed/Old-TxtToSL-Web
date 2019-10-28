@@ -27,7 +27,7 @@ function formSubmit() {
 }
 
 function getStatus() {
-  $.get('https://vps.oojmed.com/TTSL_O/api/v1/version', function (data) {
+  $.get('https://api.txttosl.com/api/v1/version', function (data) {
     var fulls = data.split('\n');
     var output = "";
 
@@ -55,7 +55,7 @@ function getStatus() {
 }
 
 function heartbeatCheck() {
-  if (window.navigator.onLine) { // if ($.get('https://vps.oojmed.com/TTSL_O/api/v1/heartbeat', function (data) {
+  if (window.navigator.onLine) { // if ($.get('https://api.txttosl.com/api/v1/heartbeat', function (data) {
     online = true;
 
     if (progressKey === undefined) {
@@ -92,7 +92,7 @@ function updateUI() {
 }
 
 function getProgressKey() {
-  $.get('https://vps.oojmed.com/TTSL_O/api/v1/progress/key', { prefix: 'TTSLWebApp' }, function (data) {
+  $.get('https://api.txttosl.com/api/v1/progress/key', { prefix: 'TTSLWebApp' }, function (data) {
     progressKey = data;
     $('#progressKey').val(data);
   });
@@ -241,7 +241,7 @@ var gettingWordAmount = 0;
 var eventSourceOkay = false;
 
 function setupEventSource() {
-  const evtSource = new EventSource("https://vps.oojmed.com/TTSL_O/api/v1/progress/stream?progressKey=" + progressKey);
+  const evtSource = new EventSource("https://api.txttosl.com/api/v1/progress/stream?progressKey=" + progressKey);
 
   evtSource.onmessage = function(event) {
     eventSourceOkay = true;
@@ -314,7 +314,7 @@ function translate() {
     timeLoadingText();
   });
 
-  $.get('https://vps.oojmed.com/TTSL_O/api/v1/translate', $('#main-form').serialize(), function(url) {
+  $.get('https://api.txttosl.com/api/v1/translate', $('#main-form').serialize(), function(url) {
     location.href = url;
   });
 
