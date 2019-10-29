@@ -237,7 +237,6 @@ function setPercentDone(percent) {
   $('.mdc-linear-progress')[0].MDCLinearProgress.foundation_.setProgress(percent / 100);
 }
 
-var gettingWordAmount = 0;
 var eventSourceOkay = false;
 
 function setupEventSource() {
@@ -248,8 +247,6 @@ function setupEventSource() {
 
     var msg = event.data;
     var thirdOfFive = 1.66666666667;
-
-    console.log(event);
 
     if (msg.indexOf('Uploaded to:') === -1) {
       $('#loadingText').text(msg);
@@ -301,8 +298,6 @@ function setupEventSource() {
       setPercentDone(95);
     }
   }
-
-  //setInterval(function() { if (!eventSourceOkay) { setupEventSource(); }}, 200)
 }
 
 function translate() {
