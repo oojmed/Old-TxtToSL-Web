@@ -173,7 +173,9 @@ async function registerSW() {
       navigator.serviceWorker.getRegistrations().then(function(registrations) {
         for (var i = 0; i < registrations.length; i++) {
           if (registrations[i].active.scriptURL !== 'https://app.txttosl.com/js/sw.js') {
-            await registrations[i].unregister();
+            registrations[i].unregister().then(function(success) {
+              //updateSnackbar.open();
+            });
           }
         }
       });
