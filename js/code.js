@@ -333,7 +333,6 @@ $(window).on('load', function() {
     ctx.fillStyle = '#222';
     ctx.fillRect( 0, 0, w, h );
 
-    // if you want a cookie ;)
     ctx.lineCap = 'round';
   }
 
