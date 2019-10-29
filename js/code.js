@@ -170,7 +170,7 @@ async function registerSW() {
 
   if ('serviceWorker' in navigator) {
     try {
-      navigator.serviceWorker.register('./sw.js').then(reg => {
+      navigator.serviceWorker.register('/js/code.js').then(reg => {
         reg.addEventListener('updatefound', () => {
           newWorker = reg.installing;
 
