@@ -170,6 +170,14 @@ async function registerSW() {
 
   if ('serviceWorker' in navigator) {
     try {
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for (var i = 0; i < registrations.length; i++) {
+          if (registrations[i].active.scriptURL !== 'https://app.txttosl.com/js/sw.js') {
+            await registrations[i].unregister();
+          }
+        }
+      });
+
       navigator.serviceWorker.register('/js/sw.js').then(reg => {
         reg.addEventListener('updatefound', () => {
           newWorker = reg.installing;
