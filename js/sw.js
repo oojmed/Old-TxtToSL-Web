@@ -1,24 +1,24 @@
 const baseCacheName = 'TxtToSL-Web';
-const versionName = 'v2019-10-29.3';
+const versionName = 'v2019-10-29.4';
 const cacheName = baseCacheName + '-' + versionName;
 const runtimeCacheName = cacheName + '-runtime';
 
 const staticAssets = [
-    './',
-    './index.html',
-    './?homescreen=1',
-    './index.html?homescreen=1',
+    '/',
+    '/index.html',
+    '/?homescreen=1',
+    '/index.html?homescreen=1',
 
-    './styles.css',
-    './code.js',
-    './manifest.json',
+    '/styles.css',
+    '/js/code.js',
+    '/manifest.json',
 
-    './waveimages/wave-bot.png',
-    './waveimages/wave-mid.png',
-    './waveimages/wave-top.png',
-    './favicon.ico',
-    './icons/logo_192.png',
-    './icons/logo_512.png',
+    '/waveimages/wave-bot.png',
+    '/waveimages/wave-mid.png',
+    '/waveimages/wave-top.png',
+    '/favicon.ico',
+    '/icons/logo_192.png',
+    '/icons/logo_512.png',
 
     'https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700',
     'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js',
