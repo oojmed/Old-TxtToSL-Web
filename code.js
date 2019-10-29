@@ -177,9 +177,9 @@ async function registerSW() {
           newWorker.addEventListener('statechange', () => {
             switch (newWorker.state) {
               case 'installed':
-                  if (navigator.serviceWorker.controller) {
-                    updateSnackbar.open();
-                  }
+                if (navigator.serviceWorker.controller) {
+                  updateSnackbar.open();
+                }
 
                 break;
             }
