@@ -1,5 +1,5 @@
 const baseCacheName = 'TxtToSL-Web';
-const versionName = 'v2019-11-03.1';
+const versionName = 'v2019-11-04.1';
 const cacheName = baseCacheName + '-' + versionName;
 const runtimeCacheName = cacheName + '-runtime';
 
@@ -10,7 +10,7 @@ const staticAssets = [
   '/index.html?homescreen=1',
 
   '/styles.css',
-  '/js/code.js',
+  '/code.js',
   '/manifest.json',
 
   '/waveimages/wave-bot.png',

@@ -350,6 +350,55 @@ hr {
   display: inline;
 }
 
+.noscript-back {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  margin: 0;
+  z-index: 10;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: #1f1f1f;
+}
+
+.noscript-prompt {
+  position: absolute;
+  z-index: 100;
+
+  top: 50%;
+  left: 50%;
+
+  width: 50%;
+  height: 150px;
+
+  margin: -75px 0 0 -25%;
+
+  background-color: #B71C1C;
+
+  border-radius: 5px;
+
+  -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+}
+
+.noscript-text {
+  position: absolute;
+
+  text-align: center;
+
+  width: 90%;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
 @media only screen and (min-width: 900px) {
   .mdc-dialog__surface {
     max-width: 800px !important;
@@ -439,6 +488,27 @@ hr {
   .sub-options {
     margin-bottom: 100px;
   }
+
+  .noscript-prompt {
+    position: absolute;
+    z-index: 100;
+  
+    top: 50%;
+    left: 50%;
+  
+    width: 90%;
+    height: 150px;
+  
+    margin: -75px 0 0 -45%;
+  
+    background-color: #B71C1C;
+  
+    border-radius: 5px;
+  
+    -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+  }
 }
 
 .mdc-linear-progress {
@@ -465,7 +535,6 @@ option {
   background-color: #1f1f1f;
   color: #fff;
 }
-
 
 option:disabled {
   color: #999999;

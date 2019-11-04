@@ -172,7 +172,7 @@ async function registerSW() {
     try {
       navigator.serviceWorker.getRegistrations().then(function(registrations) {
         for (var i = 0; i < registrations.length; i++) {
-          if (registrations[i].active.scriptURL !== 'https://app.txttosl.com/js/sw.js') {
+          if (registrations[i].active.scriptURL !== 'https://app.txttosl.com/sw.js') {
             registrations[i].unregister().then(function(success) {
               //updateSnackbar.open();
             });
@@ -180,7 +180,7 @@ async function registerSW() {
         }
       });
 
-      navigator.serviceWorker.register('/js/sw.js').then(reg => {
+      navigator.serviceWorker.register('/sw.js').then(reg => {
         reg.addEventListener('updatefound', () => {
           newWorker = reg.installing;
 
