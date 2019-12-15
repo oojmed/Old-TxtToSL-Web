@@ -1,5 +1,5 @@
 const baseCacheName = 'TxtToSL-Web';
-const versionName = 'v2019-12-15.1';
+const versionName = 'v2019-12-15.2';
 const cacheName = baseCacheName + '-' + versionName;
 const runtimeCacheName = cacheName + '-runtime';
 
@@ -21,10 +21,10 @@ const staticAssets = [
   '/icons/logo_512.png',
 
   'https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700',
-  'https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js',
+  '/jquery.min.js',
   'https://fonts.googleapis.com/icon?family=Material+Icons',
-  'https://unpkg.com/material-components-web@3.2.0/dist/material-components-web.min.js',
-  'https://unpkg.com/material-components-web@3.2.0/dist/material-components-web.min.css'
+  '/material-components-web.min.js',
+  '/material-components-web.min.css'
 ];
 
 self.addEventListener('install', event => {
