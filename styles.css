@@ -1,3 +1,8 @@
+:root {
+  --mdc-theme-primary: #F50057;
+  --mdc-theme-secondary: #E91E63;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -69,7 +74,7 @@ html, body {
 
   padding-top: 8px;
 
-  font-weight: 400;
+  font-weight: 300;
 
   font-size: 18px;
 }
@@ -201,11 +206,13 @@ hr {
 
 .loading {
   margin: auto;
+
   display: none;
 }
 
 .loadingTime {
   display: none;
+
   position: absolute;
 
   bottom: 10px;
@@ -428,13 +435,46 @@ hr {
   }
 }
 
-@media only screen and (max-height: 600px) {
-  .extraSeparator {
-    display: none;
+@media only screen and (max-width: 450px), (display-mode: standalone) {
+  .quality-select, .hoster-select {
+    float: left;
+    width: 45%;
   }
-}
 
-@media only screen and (max-width: 400px) {
+  .hoster-select {
+    margin-right: 0;
+    margin-left: 10%;
+  }
+
+  #overlay-switch-container {
+    margin-top: 30px;
+  }
+
+  .sub-options {
+    margin-bottom: 100px;
+  }
+
+  .noscript-prompt {
+    position: absolute;
+    z-index: 100;
+
+    top: 50%;
+    left: 50%;
+
+    width: 90%;
+    height: 150px;
+
+    margin: -75px 0 0 -45%;
+
+    background-color: #B71C1C;
+
+    border-radius: 5px;
+
+    -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+  }
+
   #translateButton {
     height: 36px;
     width: auto;
@@ -467,47 +507,6 @@ hr {
 
   #offlineStatus {
     left: -130px;
-  }
-}
-
-@media only screen and (max-width: 450px) {
-  .quality-select, .hoster-select {
-    float: left;
-    width: 45%;
-  }
-
-  .hoster-select {
-    margin-right: 0;
-    margin-left: 10%;
-  }
-
-  #overlay-switch-container {
-    margin-top: 30px;
-  }
-
-  .sub-options {
-    margin-bottom: 100px;
-  }
-
-  .noscript-prompt {
-    position: absolute;
-    z-index: 100;
-  
-    top: 50%;
-    left: 50%;
-  
-    width: 90%;
-    height: 150px;
-  
-    margin: -75px 0 0 -45%;
-  
-    background-color: #B71C1C;
-  
-    border-radius: 5px;
-  
-    -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
-    -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
   }
 }
 
