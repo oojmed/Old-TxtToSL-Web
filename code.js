@@ -1,20 +1,22 @@
-var progressKey = undefined;
-var status = undefined;
-var online = false;
+let progressKey = undefined;
+let status = undefined;
+let online = false;
 
-var updateSnackbar = undefined;
-var newWorker = undefined;
+let server = 'https://api.txttosl.com';
+
+let updateSnackbar = undefined;
+let newWorker = undefined;
 
 function formatDate(date) {
-  var year = date.getFullYear();
-  var month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  let month = date.getMonth() + 1;
   month = month < 10 ? '0' + month : month;
-  var day = date.getDate();
+  let day = date.getDate();
   day = day < 10 ? '0' + day : day;
 
-  var hours = date.getHours();
+  let hours = date.getHours();
   hours = hours < 10 ? '0' + hours : hours;
-  var minutes = date.getMinutes();
+  let minutes = date.getMinutes();
   minutes = minutes < 10 ? '0' + minutes : minutes;
 
   return [year, month, day].join('-') + ' ' + [hours, minutes].join(':');
@@ -27,13 +29,13 @@ function formSubmit() {
 }
 
 function getStatus() {
-  $.get('https://api.txttosl.com/api/v1/version', function (data) {
-    var fulls = data.split('\n');
-    var output = "";
+  $.get(server + '/api/v1/version', function (data) {
+    const fulls = data.split('\n');
+    let output = '';
 
-    var sectionCount = 0;
-    for (var i = 0; i < fulls.length; i++) {
-      var split = fulls[i].split(';');
+    let sectionCount = 0;
+    for (let i = 0; i < fulls.length; i++) {
+      const split = fulls[i].split(';');
 
       if (split.length !== 2) {
         output += '<br/><hr>';
@@ -92,7 +94,7 @@ function updateUI() {
 }
 
 function getProgressKey() {
-  $.get('https://api.txttosl.com/api/v1/progress/key', { prefix: 'TTSLWebApp' }, function (data) {
+  $.get(server + '/api/v1/progress/key', { prefix: 'TTSLWebApp' }, function (data) {
     progressKey = data;
     $('#progressKey').val(data);
   });
@@ -128,7 +130,7 @@ function load() {
 	});
 
   $('#overall-speed-slider')[0].MDCSlider.listen('MDCSlider:input', function (detail) {
-    var value = detail.detail.value;
+    const value = detail.detail.value;
 
     $('#overall-speed-actual').val(value);
 
@@ -136,7 +138,7 @@ function load() {
   });
 
   $('#individual-speed-slider')[0].MDCSlider.listen('MDCSlider:input', function (detail) {
-    var value = detail.detail.value;
+    const value = detail.detail.value;
 
     $('#individual-speed-actual').val(value);
 
@@ -164,14 +166,14 @@ function load() {
 }
 
 async function registerSW() {
-  if (location.hostname === "localhost" || location.hostname === "127.0.0.1" || location.hostname === "") {
+  if (location.hostname === 'localhost' || location.hostname === '127.0.0.1' || location.hostname === '') {
     return false; // Disallow registering service worker on localhost
   }
 
   if ('serviceWorker' in navigator) {
     try {
       navigator.serviceWorker.getRegistrations().then(function(registrations) {
-        for (var i = 0; i < registrations.length; i++) {
+        for (let i = 0; i < registrations.length; i++) {
           if (registrations[i].active.scriptURL !== 'https://app.txttosl.com/sw.js') {
             registrations[i].unregister().then(function(success) {
               //updateSnackbar.open();
@@ -204,7 +206,7 @@ async function registerSW() {
 
 function setSliderColor(value, selector) {
   if (value < 100) {
-    var colorValue = ((value - 50) * 4);
+    const colorValue = ((value - 50) * 4);
 
     $(selector).css('color', 'rgb(255, ' + colorValue + ', ' + colorValue + ')');
   } else {
@@ -224,18 +226,18 @@ function loadIndividualSpeed() {
   }
 }
 
-var timeElapsed = 0;
+let timeElapsed = 0;
 
 function timeFormat(time) {
-  var milli = time * 10;
+  const milli = time * 10;
 
-  var secs = (milli / 1000).toFixed(2);
+  const secs = (milli / 1000).toFixed(2);
 
   return secs;
 }
 
 function timeLoadingText() {
-  var seconds = timeFormat(timeElapsed);
+  const seconds = timeFormat(timeElapsed);
   $('.loadingTime').html(seconds + 's');
 
   timeElapsed++;
@@ -247,16 +249,16 @@ function setPercentDone(percent) {
   $('.mdc-linear-progress')[0].MDCLinearProgress.foundation_.setProgress(percent / 100);
 }
 
-var eventSourceOkay = false;
+let eventSourceOkay = false;
 
 function setupEventSource() {
-  const evtSource = new EventSource("https://api.txttosl.com/api/v1/progress/stream?progressKey=" + progressKey);
+  const evtSource = new EventSource(server + '/api/v1/progress/stream?progressKey=' + progressKey);
 
   evtSource.onmessage = function(event) {
     eventSourceOkay = true;
 
-    var msg = event.data;
-    var thirdOfFive = 1.66666666667;
+    const msg = event.data;
+    const thirdOfFive = 1.66666666667;
 
     if (msg.indexOf('Uploaded to:') === -1) {
       $('#loadingText').text(msg);
@@ -311,15 +313,15 @@ function setupEventSource() {
 }
 
 function translate() {
-  $(".main").fadeOut(500, function() {;
-    $(".loading").fadeIn(500);
-    $(".loadingTime").fadeIn(500);
+  $('.main').fadeOut(1000, function() {
+    $('.loading').fadeIn(1000);
+    $('.loadingTime').fadeIn(1000);
 
     timeElapsed = 0;
     timeLoadingText();
   });
 
-  $.get('https://api.txttosl.com/api/v1/translate', $('#main-form').serialize(), function(url) {
+  $.get(server + '/api/v1/translate', $('#main-form').serialize(), function(url) {
     location.href = url;
   });
 
