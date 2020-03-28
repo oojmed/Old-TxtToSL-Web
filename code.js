@@ -298,7 +298,7 @@ function setupEventSource() {
       setPercentDone(40);
     }
 
-    if (msg.indexOf('Generating video') !== -1) {
+    if (msg.indexOf('Rendering') !== -1) {
       setPercentDone(60 + (parseInt(msg.split('%')[0].slice(-3)) / 5));
     }
 
