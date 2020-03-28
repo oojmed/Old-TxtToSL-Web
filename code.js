@@ -306,7 +306,7 @@ function setupEventSource() {
       setPercentDone(80);
     }
 
-    if (msg === 'Uploading...') {
+    if (msg === 'Uploading...' || msg === 'Redirecting...') {
       setPercentDone(95);
     }
   }
