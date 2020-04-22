@@ -119,8 +119,8 @@ function load() {
 
   window.mdc.autoInit();
 
-  heartbeatCheck();
   getStatus();
+  heartbeatCheck();
 
   setInterval(heartbeatCheck, 1000); // setInterval(heartbeatCheck, 5000);
   setInterval(getStatus, 3600000);
