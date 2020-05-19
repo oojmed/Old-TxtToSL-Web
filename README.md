@@ -1,5 +1,7 @@
-# TxtToSL Web
+# [OLD] TxtToSL Web
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/l)
+
+## This project has been replaced for the [new TxtToSL Web (Simple)](https://github.com/oojmed/TxtToSL-Web)
 
 The web app for TxtToSL Online. Uses the TxtToSL Online Server (ours)'s API, which translates text into sign language.
 
